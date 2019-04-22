@@ -18,6 +18,19 @@
         <td><%= link_to 'Edit', edit_skill_path(skill) %></td>
         <td><%= link_to 'Destroy', skill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+
+      <thead>
+        <tr>
+          <th>Framework</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      <tr>
+        <td><%= skill.framework %></td>
+        <td><%= link_to 'Show', skill %></td>
+        <td><%= link_to 'Edit', edit_skill_path(skill) %></td>
+        <td><%= link_to 'Destroy', skill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
     <% end %>
   </tbody>
 </table>
