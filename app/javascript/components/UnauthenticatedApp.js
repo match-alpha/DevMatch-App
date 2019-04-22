@@ -12,8 +12,7 @@ import { HashLink as Link } from 'react-router-hash-link'
 import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor'
 
 
-configureAnchors ({offset: -80})
-
+configureAnchors ({offset: -100})
 
 
 
@@ -41,7 +40,10 @@ class UnauthenticatedApp extends React.Component {
               <p>
                 Where developers come to teach and learn
               </p>
+
+              <a href = "http://localhost:3000/users/sign_in">
               <Button color="primary">Sign Up</Button>
+              </a>
               </center>
             </Container>
           </Jumbotron>
