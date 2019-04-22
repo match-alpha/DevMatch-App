@@ -7,4 +7,5 @@ class User < ApplicationRecord
          has_one :profile
          has_many :user_skills
          has_many :skills, through: :user_skills
+
 end
