@@ -15,13 +15,12 @@ import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor'
 configureAnchors ({offset: -100})
 
 
-
-
 class UnauthenticatedApp extends React.Component {
   render () {
     return (
 
         <div>
+
           <Navbar bg="primary" variant="dark" sticky="top" >
             <Navbar.Brand img src={Logo} href="#home">
               <img src = {NavLogo} className="d-inline-block align-top" alt="React Bootstrap logo"/>
@@ -36,14 +35,23 @@ class UnauthenticatedApp extends React.Component {
           <Jumbotron href="#home" id="landingpage" fluid className="text-xs-center">
             <Container>
             <center>
+            <div>
               <img src={Logo} alt="Logo" />
+            </div>
               <p>
                 Where developers come to teach and learn
               </p>
 
-              <a href = "http://localhost:3000/users/sign_in">
-              <Button color="primary">Sign Up</Button>
-              </a>
+              <div id="front">
+                <a href = "http://localhost:3000/users/sign_up">
+                <Button color="primary">Sign Up</Button>
+                </a>
+
+
+                <a href = "http://localhost:3000/users/sign_in">
+                <Button color="primary">Log In</Button>
+                </a>
+                </div>
               </center>
             </Container>
           </Jumbotron>
