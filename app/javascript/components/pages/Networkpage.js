@@ -1,10 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
+import MediaCard from "../network_page/Cards";
+
 class Networkpage extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <h1>Homepage</h1>
+        <MediaCard />
       </React.Fragment>
     );
   }
