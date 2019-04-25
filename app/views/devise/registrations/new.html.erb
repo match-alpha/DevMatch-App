@@ -13,7 +13,9 @@
     <%= f.text_field :last_name %>
   </div>
 
-
+  <div class="field">
+  <%= f.radio_button :user_type, "mentor", :checked => "true" %>
+</div>
 
   <div class="field">
     <%= f.label :email %><br />
