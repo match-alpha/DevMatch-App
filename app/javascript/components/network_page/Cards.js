@@ -3,17 +3,6 @@ import PropTypes from "prop-types";
 import { Card, Icon, Image, Grid, Button, Label } from "semantic-ui-react";
 import Badge from "react-bootstrap/Badge";
 
-const sizes = [
-  "mini",
-  "tiny",
-  "small",
-  "medium",
-  "large",
-  "big",
-  "huge",
-  "massive"
-];
-
 class MediaCard extends React.Component {
   constructor(props) {
     super(props);
