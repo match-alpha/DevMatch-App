@@ -130,9 +130,6 @@ class UnauthenticatedApp extends React.Component {
           </Jumbotron>
           </ScrollableAnchor>
 
-          <div>
-
-          </div>
 
         </div>
 
