@@ -1,4 +1,4 @@
-class UserSkillsController < ApplicationController
+ class UserSkillsController < ApplicationController
   before_action :set_user_skill, only: [:show, :edit, :update, :destroy]
 
   # GET /user_skills
