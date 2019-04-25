@@ -8,4 +8,5 @@ class User < ApplicationRecord
          has_many :user_skills
          has_many :skills, through: :user_skills
 
+         validates :first_name, :last_name, :user_type, :email, :password, presence: true
 end
