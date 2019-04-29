@@ -26,12 +26,19 @@
 }
  */
 
-*{
+* {
   margin: 0px;
   padding: 0px;
 }
 
-.container{
+.avatar {
+  display: flex;
+}
 
+.linkedin {
+  display: flex;
+}
 
+.github {
+  display: flex;
 }

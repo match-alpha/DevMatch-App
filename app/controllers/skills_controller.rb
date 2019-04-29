@@ -1,5 +1,7 @@
-class SkillsController < ApplicationController
+class SkillsController < ActionController::API
+  include ActionController::MimeResponds
   before_action :set_skill, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /skills
   # GET /skills.json
@@ -10,6 +12,9 @@ class SkillsController < ApplicationController
   # GET /skills/1
   # GET /skills/1.json
   def show
+    @skill= Skill.find(params[:id])
+    render json: @skill
+
   end
 
   # GET /skills/new
@@ -24,10 +29,10 @@ class SkillsController < ApplicationController
   # POST /skills
   # POST /skills.json
   def create
-    @skill = Skill.new(skill_params)
+    @skill = current_user.skills.create(skill_params)
 
     respond_to do |format|
-      if @skill.save
+      if @skill.valid?
         format.html { redirect_to @skill, notice: 'Skill was successfully created.' }
         format.json { render :show, status: :created, location: @skill }
       else
@@ -40,7 +45,9 @@ class SkillsController < ApplicationController
   # PATCH/PUT /skills/1
   # PATCH/PUT /skills/1.json
   def update
+   
     respond_to do |format|
+      
       if @skill.update(skill_params)
         format.html { redirect_to @skill, notice: 'Skill was successfully updated.' }
         format.json { render :show, status: :ok, location: @skill }
@@ -54,6 +61,7 @@ class SkillsController < ApplicationController
   # DELETE /skills/1
   # DELETE /skills/1.json
   def destroy
+    @skill = Skill.find(params[:id])
     @skill.destroy
     respond_to do |format|
       format.html { redirect_to skills_url, notice: 'Skill was successfully destroyed.' }

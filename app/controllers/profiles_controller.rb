@@ -1,6 +1,7 @@
-class ProfilesController < ApplicationController
+class ProfilesController < ActionController::API
+  include ActionController::MimeResponds
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   # GET /profiles
   # GET /profiles.json
   def index
@@ -11,7 +12,8 @@ class ProfilesController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.json
   def show
-
+    @profile = Profile.find params[:id]
+    render json: @profile
   end
 
   # GET /profiles/new
@@ -34,7 +36,7 @@ class ProfilesController < ApplicationController
 
     respond_to do |format|
       if @profile.save
-        format.html { redirect_to "/profile", notice: 'Profile was successfully created.' }
+        format.html { redirect_to @profile , notice: 'Profile was successfully created.' }
         format.json { render :show, status: :created, location: @profile }
       else
         format.html { render :new }
@@ -46,6 +48,7 @@ class ProfilesController < ApplicationController
   # PATCH/PUT /profiles/1
   # PATCH/PUT /profiles/1.json
   def update
+    
     respond_to do |format|
       if @profile.update(profile_params)
         format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
