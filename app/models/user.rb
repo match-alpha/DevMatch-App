@@ -7,6 +7,7 @@ class User < ApplicationRecord
          has_one :profile
          has_many :user_skills
          has_many :skills, through: :user_skills
+         has_one_attached :avatar
 
          validates :first_name, :last_name, :user_type, :email, :password, presence: true
 end

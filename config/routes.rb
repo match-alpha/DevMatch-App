@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :user_skills
   resources :profiles
   resources :skills
-  devise_for :users
+  resources :users
+
   get '*path', to: 'pages#protected', constraints: ->(request){ request.format.html? }
   get "protected", to: 'pages#protected', as: :protected
   get "/users", to: 'users#index'
