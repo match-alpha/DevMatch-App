@@ -14,35 +14,35 @@
  *= require_self
  */
 
- body {margin: 0px}
+body {
+  margin: 0px;
+}
 
- .sign_up {
-   background-image: url("color1.png");
-   align-content: center;
-   padding:90px;
+.sign_up {
+  background-image: url("color1.png");
+  align-content: center;
+  padding: 90px;
+}
 
- }
+.log_in {
+  background-image: url("color1.png");
+  align-content: center;
+  padding: 175px;
+}
 
- .log_in {
-   background-image: url("color1.png");
-   align-content: center;
-   padding:175px;
+input {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
 
- }
-
- input {
-   width: 50%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-
-
- }
-
- input[type=button], input[type=submit], input[type=reset] {
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
   background-color: #000000;
   border: none;
   color: white;
@@ -50,4 +50,13 @@
   text-decoration: none;
   margin: 4px 2px;
   cursor: pointer;
+}
+
+.linkedin {
+  display: inline-block;
+  padding: auto;
+}
+
+.github {
+  display: flex;
 }
