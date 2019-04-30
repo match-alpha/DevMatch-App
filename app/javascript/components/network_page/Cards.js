@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Card } from "react-bootstrap";
+import { Card, Grid, CardColumns, Container, Row, Col, CardGroup } from "react-bootstrap";
 import Badge from "react-bootstrap/Badge";
 import Button from "react-bootstrap/Button";
 
@@ -40,7 +40,10 @@ class MediaCard extends React.Component {
       <div>
         {users.map((user, index) => {
           return (
-            <Card style={{ width: "18rem" }} key={index}>
+
+            <Container>
+            <Col xs="4">
+            <Card style={{ width: "15rem" }} key={index}>
               <Card.Img
                 variant="top"
                 src="https://vignette.wikia.nocookie.net/uncyclopedia/images/6/6e/CarltonBanks.jpg/revision/latest?cb=20060508113424"
@@ -56,7 +59,7 @@ class MediaCard extends React.Component {
                   return (
                     <Card.Text key={index}>
                       {skill.language === "Ruby" && (
-                        <Badge variant="danger">Ruby</Badge>
+                        <Badge variant="warning">Ruby</Badge>
                       )}
                       {skill.language === "Javascript" && (
                         <Badge variant="warning">Javascript</Badge>
@@ -70,6 +73,11 @@ class MediaCard extends React.Component {
                 <Button variant="outline-success">View Profile</Button>
               </Card.Body>
             </Card>
+            </Col>
+            </Container>
+
+
+
           );
         })}
       </div>
