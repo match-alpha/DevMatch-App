@@ -60,4 +60,6 @@ gem "react-rails", "~> 2.5"
 
 gem "devise", "~> 4.6"
 
+gem 'haml'
+gem 'ransack'
 gem "aws-sdk-s3", "~> 1.36"

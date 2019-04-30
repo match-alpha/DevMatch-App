@@ -3,13 +3,7 @@ Rails.application.routes.draw do
   resources :user_skills
   resources :profiles
   resources :skills
-<<<<<<< HEAD
   resources :users
-
-=======
-  devise_for :users
-  resources :users
->>>>>>> master
   get '*path', to: 'pages#protected', constraints: ->(request){ request.format.html? }
   get "protected", to: 'pages#protected', as: :protected
   get "/users", to: 'users#index'

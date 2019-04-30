@@ -23,6 +23,7 @@ import {
 import EditProfile from "./EditProfile";
 import CreateSkill from "./CreateSkill";
 import EditSkill from "./EditSkill";
+import User from "../avatar.js";
 
 class MyProfile extends React.Component {
   constructor(props) {
@@ -86,6 +87,7 @@ class MyProfile extends React.Component {
                 <h1 className="name">
                   {user.first_name} {user.last_name}
                 </h1>
+                <User user={this.props.current_user} />
               </div>
               <div>
                 <h3 className="github">{user.profile.github}</h3>

@@ -2,7 +2,6 @@ class UsersController < ApplicationController
     def index
         @users = User.includes(:skills)
     end
-<<<<<<< HEAD
 
     def update
       @user = current_user
@@ -10,10 +9,7 @@ class UsersController < ApplicationController
       render :show
     end
 
-    def user_params
-        params.require(:user).permit(:avatar)
-    end
-=======
+    
     def show
         @user = User.find params[:id]
      
@@ -23,14 +19,14 @@ class UsersController < ApplicationController
         
     end
 
-    def update
-        @user = current_user.find params[:id]
-        if @user.update_attributes(experience_params)
-            render json: @user
-    else
-        render json: @user.errors, status: :unprocessable_entity
-    end   
-    end
+    # def update
+    #     @user = current_user.find params[:id]
+    #     if @user.update_attributes(experience_params)
+    #         render json: @user
+    # else
+    #     render json: @user.errors, status: :unprocessable_entity
+    # end   
+    # end
 
    def destroy
         @user = current_user.find params[:id]
@@ -42,5 +38,8 @@ class UsersController < ApplicationController
        end
    end
 
->>>>>>> master
+   def user_params
+    params.require(:user).permit(:avatar)
+end
+
 end
