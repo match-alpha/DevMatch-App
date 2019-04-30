@@ -47,27 +47,21 @@ class MyProfile extends React.Component {
       });
   }
 
-  handleDelete = profile => {
-    return fetch(BASE + `/profiles/${profile.id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json"
-      }
+  handleDelete = skill => {
+    return fetch(`/skills/${skill.id}`, {
+      method: "DELETE"
     })
-      .then(resp => {
-        let json = resp.json();
-        return json;
-      })
-      .then(destoryProfile => {
+      .then(destorySkill => {
         this.setState({
-          profiles: destoryProfile
+          skill: destorySkill
         });
       })
+
       .catch(e => alert(e));
   };
 
   render() {
-    const { user } = this.state;
+    const { user, handleDelete } = this.state;
 
     return (
       <div>
@@ -112,6 +106,13 @@ class MyProfile extends React.Component {
                     <div key={index}>
                       {skill.language} {skill.framework}
                       <EditSkill skill={skill} />
+                      <Button
+                        id="submit"
+                        onClick={() => this.handleDelete(skill)}
+                        type="button"
+                      >
+                        Delete Skill
+                      </Button>
                     </div>
                   );
                 })}

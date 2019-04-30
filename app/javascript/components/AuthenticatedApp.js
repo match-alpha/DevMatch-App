@@ -12,7 +12,6 @@ class AuthenticatedApp extends React.Component {
     return (
       <Router>
         <React.Fragment>
-          console.log(this.props.skill);
           <Switch>
             <Route
               exact

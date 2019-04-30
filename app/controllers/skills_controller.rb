@@ -63,10 +63,10 @@ class SkillsController < ActionController::API
   def destroy
     @skill = Skill.find(params[:id])
     @skill.destroy
-    respond_to do |format|
-      format.html { redirect_to skills_url, notice: 'Skill was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    # respond_to do |format|
+    #   format.html { redirect_to skills_url, notice: 'Skill was successfully destroyed.' }
+    #   format.json { head :no_content }
+    # end
   end
 
   private
