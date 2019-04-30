@@ -1,7 +1,8 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from "react";
+import PropTypes from "prop-types";
+
 class Homepage extends React.Component {
-  render () {
+  render() {
     return (
       <React.Fragment>
         <h1>Homepage</h1>
@@ -10,4 +11,4 @@ class Homepage extends React.Component {
   }
 }
 
-export default Homepage
+export default Homepage;
