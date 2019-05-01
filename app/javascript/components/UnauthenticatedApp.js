@@ -162,18 +162,12 @@ class UnauthenticatedApp extends React.Component {
               </Container>
             </Container>
           </Jumbotron>
-<<<<<<< HEAD
           </ScrollableAnchor>
 
 
         </div>
 
 
-=======
-        </ScrollableAnchor>
-        <div />
-      </div>
->>>>>>> master
     );
   }
 }

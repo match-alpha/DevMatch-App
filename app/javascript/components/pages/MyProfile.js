@@ -5,8 +5,6 @@ import { Link } from "react-router-dom";
 import {
   Nav,
   Navbar,
-  Logo,
-  NavLogo,
   Form,
   NavDropdown,
   FormControl,
@@ -23,6 +21,11 @@ import {
 import EditProfile from "./EditProfile";
 import CreateSkill from "./CreateSkill";
 import EditSkill from "./EditSkill";
+import User from "../avatar.js";
+import Logo from "../images/Logo.png";
+import NavLogo from "../images/NavbarLogo.png";
+
+
 
 class MyProfile extends React.Component {
   constructor(props) {
@@ -86,6 +89,7 @@ class MyProfile extends React.Component {
                 <h1 className="name">
                   {user.first_name} {user.last_name}
                 </h1>
+                <User id="cardimage" user={user}/>
               </div>
               <div>
                 <h3 className="github">{user.profile.github}</h3>
@@ -97,7 +101,7 @@ class MyProfile extends React.Component {
                 {user.profile.city}, {user.profile.state}
               </div>
               <hr className="my-4" />
-              <h3>{user.profile.user_type} User type goes there</h3>
+              <h3>{user.user_type}</h3>
             </div>
             <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
               <Tab eventKey="skill" title="Skills">
@@ -127,7 +131,6 @@ class MyProfile extends React.Component {
                 <div>{user.profile.twitter}</div>
               </Tab>
             </Tabs>
-            {user.user_type}
             <div>{user.profile.experience} </div>
             <div>{user.profile.education}</div>
             <div>{user.profile.about_me}</div>
