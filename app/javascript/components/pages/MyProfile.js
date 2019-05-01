@@ -25,8 +25,6 @@ import User from "../avatar.js";
 import Logo from "../images/Logo.png";
 import NavLogo from "../images/NavbarLogo.png";
 
-
-
 class MyProfile extends React.Component {
   constructor(props) {
     super(props);

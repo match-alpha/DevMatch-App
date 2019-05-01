@@ -1,11 +1,18 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+<<<<<<< HEAD
 import { Card, Grid, CardColumns, Container, Row, Col, CardGroup } from "react-bootstrap";
 import MediaCard from "./network_page/Cards";
 import MyProfile from "./pages/MyProfile";
 import Profilepage from "./pages/profilepage";
 import EditProfile from "./pages/EditProfile";
+=======
+import { CardColumns } from "react-bootstrap";
+import MediaCard from "./network_page/Cards";
+import User from "./avatar.js";
+import MyProfile from "./pages/MyProfile";
+
+>>>>>>> master
 import CreateProfile from "./pages/CreateProfile";
 
 class AuthenticatedApp extends React.Component {
@@ -13,7 +20,10 @@ class AuthenticatedApp extends React.Component {
     return (
       <Router>
         <React.Fragment>
+<<<<<<< HEAD
           <div>Authenticated</div>
+=======
+>>>>>>> master
           <Switch>
           <Route
               exact
@@ -30,7 +40,6 @@ class AuthenticatedApp extends React.Component {
           </Switch>
         </React.Fragment>
       </Router>
-
     );
   }
 }
