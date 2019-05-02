@@ -2,7 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Card, Icon, Image, Grid, Button, Label } from "semantic-ui-react";
 import Select, { components } from "react-select";
-import ActiveStorageProvider from "react-activestorage-provider";
+import ActiveStorageProvider from 'react-activestorage-provider';
+import ShowProfile from "../pages/ShowProfile"
 import Logo from "../images/Logo.png";
 import NavLogo from "../images/NavbarLogo.png";
 import {
@@ -181,6 +182,7 @@ class MediaCard extends React.Component {
                     <Card>
                       <Image id="cardimage" src={user.avatar_url} />
 
+<<<<<<< HEAD
                       <Card.Content>
                         <Card.Header>{user.first_name}</Card.Header>
                         <Label color="#57bf96" ribbon>
@@ -225,6 +227,56 @@ class MediaCard extends React.Component {
                 );
               })}
           </Grid>
+=======
+                    <Card.Content>
+                      <Card.Header>{user.first_name}</Card.Header>
+                      <Label color="#57bf96" ribbon>
+                        {user.user_type}
+                      </Label>
+                      <Card.Meta>
+                        <span className="date">    </span>
+                      </Card.Meta>
+                      {user.skills.map((skill, index) => {
+                        return (
+                          <div>
+                          <Card.Description key={index}>
+                            {skill.language === "Ruby" && (
+                              <Label basic color="red">
+                                Ruby
+                              </Label>
+                            )}
+                            {skill.language === "Javascript" && (
+                              <Label basic color="yellow">
+                                Javascript
+                              </Label>
+                            )}
+                            {skill.framework === "React" && (
+                              <Label basic color="blue">
+                                React
+                              </Label>
+                            )}
+                            {skill.framework === "Rails" && (
+                              <Label basic color="pink">
+                                Rails
+                              </Label>
+                            )}
+                          </Card.Description>
+                          <br />
+                          <ShowProfile
+                            user = {user}
+                            profile = {user.profile}
+                            skill={skill}
+                            />
+                          </div>
+                        );
+                      })}
+                    </Card.Content>
+                  </Card>
+                </Grid.Column>
+              );
+            })}
+        </Grid>
+>>>>>>> c54a77af62220597f054100b41e021533704f2b8
         </div>
       </div>
     );
