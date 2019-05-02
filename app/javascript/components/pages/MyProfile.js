@@ -1,12 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import {
   Nav,
   Navbar,
-  Logo,
-  NavLogo,
   Form,
   NavDropdown,
   FormControl,
@@ -24,6 +21,8 @@ import EditProfile from "./EditProfile";
 import CreateSkill from "./CreateSkill";
 import EditSkill from "./EditSkill";
 import User from "../avatar.js";
+import Logo from "../images/Logo.png";
+import NavLogo from "../images/NavbarLogo.png";
 
 class MyProfile extends React.Component {
   constructor(props) {
@@ -61,6 +60,18 @@ class MyProfile extends React.Component {
       .catch(e => alert(e));
   };
 
+  handleDeleted = profile => {
+    return fetch(`/profiles/${this.props.profile}`, {
+      method: "DELETE"
+    })
+      .then(destoryProfile => {
+        this.setState({
+          profile: destoryProfile
+        });
+      })
+      .catch(e => alert(e));
+  };
+
   render() {
     const { user, handleDelete } = this.state;
 
@@ -68,47 +79,70 @@ class MyProfile extends React.Component {
       <div>
         {user && (
           <div>
-            <Navbar bg="primary" variant="dark" sticky="top">
-              <Navbar.Brand img="true" img src={Logo} href="#home">
-                <img
-                  src={NavLogo}
-                  className="d-inline-block align-top"
-                  alt="React Bootstrap logo"
-                />
-              </Navbar.Brand>
-              <Nav className="ml-auto">
-                <Nav.Link href="#mission">Home</Nav.Link>
-                <Nav.Link href="#tech">Network</Nav.Link>
-                <Nav.Link href="#about">Profile</Nav.Link>
-              </Nav>
-            </Navbar>
+            <Router>
+              <Navbar bg="primary" variant="dark" sticky="top">
+                <Navbar.Brand img="true" img src={Logo}>
+                  <img
+                    src={NavLogo}
+                    className="d-inline-block align-top"
+                    alt="React Bootstrap logo"
+                  />
+                </Navbar.Brand>
+                <Nav className="ml-auto">
+                  <Nav.Link href="/">Home</Nav.Link>
+                  <Nav.Link href="/network">Network</Nav.Link>
+                  <Nav.Link href="/profile">Profile</Nav.Link>
+                </Nav>
+              </Navbar>
+            </Router>
             <div className="jumbotron">
               <div>
-                <h1 className="name">
-                  {user.first_name} {user.last_name}
-                </h1>
-                <User user={this.props.current_user} />
-              </div>
-              <div>
-                <h3 className="github">{user.profile.github}</h3>
-              </div>
-              <div>
-                <h3 className="linkedin"> {user.profile.linkedin}</h3>
-              </div>
-              <div className="location">
-                {user.profile.city}, {user.profile.state}
+                <div className="avatarz">
+                  <User user={this.props.current_user} />
+                </div>
+                <div className="description">
+                  <div>
+                    <h2 className="name">
+                      {user.first_name} {user.last_name}
+                    </h2>
+                  </div>
+                  <div>
+                    <h3 className="github">Github: {user.profile.github}</h3>
+                  </div>
+
+                  <div>
+                    <h3> Email: {user.email}</h3>
+                  </div>
+
+                  <div className="location">
+                    <h3>
+                      Location: {user.profile.city}, {user.profile.state}
+                    </h3>
+                  </div>
+                </div>
               </div>
               <hr className="my-4" />
-              <h3>{user.profile.user_type} User type goes there</h3>
+              <h3>{user.user_type}</h3>
+              <EditProfile profile={this.props.profile} />
             </div>
+
             <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
               <Tab eventKey="skill" title="Skills">
                 {user.skills.map((skill, index) => {
                   return (
                     <div key={index}>
-                      {skill.language} {skill.framework}
+                      <div className="language">
+                        <h2> Language</h2>
+                        <h3>{skill.language}</h3>
+                      </div>
+                      <div className="framework">
+                        <h2> Framework</h2>
+                        <h3>{skill.framework}</h3>
+                      </div>
+
                       <EditSkill skill={skill} />
                       <Button
+                        className=""
                         id="submit"
                         onClick={() => this.handleDelete(skill)}
                         type="button"
@@ -121,18 +155,27 @@ class MyProfile extends React.Component {
                 <CreateSkill />
               </Tab>
               <Tab eventKey="about_me" title="About Me">
-                <EditProfile profile={this.props.profile} />
+                <h3>{user.profile.about_me}</h3>
               </Tab>
+
+              <Tab eventKey="Experience" title="Experience/ Education">
+                <h3>
+                  {user.first_name} attended {user.profile.education}
+                </h3>
+                <h3>
+                  {" "}
+                  Has Programing experience at {user.profile.experience}{" "}
+                </h3>
+              </Tab>
+
               <Tab eventKey="contact" title="Contact">
-                <div>{user.email}</div>
-                <div>{user.profile.instagram}</div>
-                <div>{user.profile.twitter}</div>
+                <h3> For more contact:</h3>
+
+                <h3 className="linkedin"> Linkedin: {user.profile.linkedin}</h3>
+                <h3>Instagram:{user.profile.instagram}</h3>
+                <h3>Twitter: {user.profile.twitter}</h3>
               </Tab>
             </Tabs>
-            {user.user_type}
-            <div>{user.profile.experience} </div>
-            <div>{user.profile.education}</div>
-            <div>{user.profile.about_me}</div>
           </div>
         )}
       </div>
