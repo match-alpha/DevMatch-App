@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Card, Icon, Image, Grid, Button, Label } from "semantic-ui-react";
 import Select, { components } from "react-select";
 import ActiveStorageProvider from 'react-activestorage-provider';
+import ShowProfile from "../pages/ShowProfile"
 import Logo from "../images/Logo.png";
 import NavLogo from "../images/NavbarLogo.png";
 import {
@@ -18,7 +19,6 @@ import {
   Tab,
   Tabs
 } from "react-bootstrap";
-
 
 const user_type = [
   { label: "Mentor", value: "Mentor" },
@@ -43,7 +43,7 @@ class MediaCard extends React.Component {
       users: [],
       skills: [],
       term: "",
-      userTypeSearch: "",
+      userTypeSearch: ""
     };
     this.searchHandler = this.searchHandler.bind(this);
   }
@@ -121,22 +121,42 @@ class MediaCard extends React.Component {
         <h3> I'm Looking for a: </h3>
 
         <form>
+          <input
+            type="radio"
+            id="radio-btn-1"
+            name="radio-btns"
+            value=""
+            checked={this.state.userTypeSearch === ""}
+            onChange={this.handleChangeRadio}
+          />
+          <label for="radio-btn-1" class="btn">
+            {" "}
+            All{" "}
+          </label>
 
-        <input type="radio" id="radio-btn-1" name="radio-btns" value=""
-        checked={this.state.userTypeSearch === ""}
-        onChange={this.handleChangeRadio} />
-        <label for="radio-btn-1" class="btn"> All </label>
+          <input
+            type="radio"
+            id="radio-btn-2"
+            name="radio-btns"
+            value="Mentor"
+            checked={this.state.userTypeSearch === "Mentor"}
+            onChange={this.handleChangeRadio}
+          />
+          <label for="radio-btn-2" class="btn">
+            Mentor
+          </label>
 
-        <input type="radio" id="radio-btn-2" name="radio-btns" value="Mentor"
-        checked={this.state.userTypeSearch === "Mentor"}
-        onChange={this.handleChangeRadio} />
-        <label for="radio-btn-2" class="btn">Mentor</label>
-
-        <input type="radio" id="radio-btn-3" name="radio-btns" value="Mentee"
-        checked={this.state.userTypeSearch === "Mentee"}
-        onChange={this.handleChangeRadio} />
-        <label for="radio-btn-3" class="btn">Mentee</label>
-
+          <input
+            type="radio"
+            id="radio-btn-3"
+            name="radio-btns"
+            value="Mentee"
+            checked={this.state.userTypeSearch === "Mentee"}
+            onChange={this.handleChangeRadio}
+          />
+          <label for="radio-btn-3" class="btn">
+            Mentee
+          </label>
         </form>
 
         <br />
@@ -146,22 +166,68 @@ class MediaCard extends React.Component {
             onChange={this.searchHandler}
             value={term}
             options={language}
-            placeholder = "Select a language you want to learn:"
+            placeholder="Select a language you want to learn:"
           />
         </form>
 
         <br />
         <br />
-        <div className = "swag">
-        <Grid relaxed columns={4}>
-          {this.state.users
-            .filter(this.searchingFor(this.state.term))
-            .map((user, index) => {
-              return (
-                <Grid.Column key={index}>
-                  <Card>
-                    <Image id="cardimage" src={user.avatar_url} />
+        <div className="swag">
+          <Grid relaxed columns={4}>
+            {this.state.users
+              .filter(this.searchingFor(this.state.term))
+              .map((user, index) => {
+                return (
+                  <Grid.Column key={index}>
+                    <Card>
+                      <Image id="cardimage" src={user.avatar_url} />
 
+<<<<<<< HEAD
+                      <Card.Content>
+                        <Card.Header>{user.first_name}</Card.Header>
+                        <Label color="#57bf96" ribbon>
+                          {user.user_type}
+                        </Label>
+                        <Card.Meta>
+                          <span className="date"> </span>
+                        </Card.Meta>
+                        {user.skills.map((skill, index) => {
+                          return (
+                            <Card.Description key={index}>
+                              {skill.language === "Ruby" && (
+                                <Label basic color="red">
+                                  Ruby
+                                </Label>
+                              )}
+                              {skill.language === "Javascript" && (
+                                <Label basic color="yellow">
+                                  Javascript
+                                </Label>
+                              )}
+                              {skill.framework === "React" && (
+                                <Label basic color="blue">
+                                  React
+                                </Label>
+                              )}
+                              {skill.framework === "Rails" && (
+                                <Label basic color="pink">
+                                  Rails
+                                </Label>
+                              )}
+                            </Card.Description>
+                          );
+                        })}
+                        <br />
+                        <Button basic color="teal">
+                          View Profile
+                        </Button>
+                      </Card.Content>
+                    </Card>
+                  </Grid.Column>
+                );
+              })}
+          </Grid>
+=======
                     <Card.Content>
                       <Card.Header>{user.first_name}</Card.Header>
                       <Label color="#57bf96" ribbon>
@@ -172,6 +238,7 @@ class MediaCard extends React.Component {
                       </Card.Meta>
                       {user.skills.map((skill, index) => {
                         return (
+                          <div>
                           <Card.Description key={index}>
                             {skill.language === "Ruby" && (
                               <Label basic color="red">
@@ -194,18 +261,22 @@ class MediaCard extends React.Component {
                               </Label>
                             )}
                           </Card.Description>
+                          <br />
+                          <ShowProfile
+                            user = {user}
+                            profile = {user.profile}
+                            skill={skill}
+                            />
+                          </div>
                         );
                       })}
-                      <br />
-                      <Button basic color="teal">
-                        View Profile
-                      </Button>
                     </Card.Content>
                   </Card>
                 </Grid.Column>
               );
             })}
         </Grid>
+>>>>>>> c54a77af62220597f054100b41e021533704f2b8
         </div>
       </div>
     );

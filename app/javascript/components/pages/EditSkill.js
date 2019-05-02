@@ -21,10 +21,12 @@ import {
 class EditSkill extends React.Component {
   constructor(props) {
     super(props);
+    this.handleShow = this.handleShow.bind(this);
+    this.handleClose = this.handleClose.bind(this);
     this.state = {
       //   responseOK: false,
       user: null,
-
+      show: false,
       form: {
         language: "",
         framework: ""
@@ -51,6 +53,7 @@ class EditSkill extends React.Component {
     //   .then(response => {
     //     this.setState({ responseOk: true });
     //   });
+    window.location.reload();
   };
 
   handleChange = event => {
@@ -60,30 +63,51 @@ class EditSkill extends React.Component {
     this.setState({ form: form });
   };
 
+  handleClose() {
+    this.setState({ show: false });
+  }
+
+  handleShow = () => {
+    this.setState({ show: true });
+  };
+
   render() {
     return (
       <div>
         {/* {profile && <Redirect to="/profile" />} */}
         <h1> Edit Skill</h1>
         <div>
-          <form onSubmit={this.handleSubmit}>
-            <input
-              onChange={this.handleChange}
-              s={12}
-              name="language"
-              label="language"
-              value={this.state.form.language}
-            />
+          <>
+            <Button variant="primary" onClick={this.handleShow}>
+              Click to Edit Skill
+            </Button>
 
-            <input
-              onChange={this.handleChange}
-              s={12}
-              name="framework"
-              label="framework"
-              value={this.state.form.framework}
-            />
-            <Button type="submit">Submit</Button>
-          </form>
+            <Modal show={this.state.show} onHide={this.handleClose}>
+              <form onSubmit={this.handleSubmit}>
+                <Modal.Header closeButton>
+                  <Modal.Title>Edit Skill</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  <label>Language</label>
+                  <input
+                    onChange={this.handleChange}
+                    s={12}
+                    name="language"
+                    label="language"
+                  />
+                  <label>Framework</label>
+                  <input
+                    onChange={this.handleChange}
+                    s={12}
+                    name="framework"
+                    label="framework"
+                  />
+                </Modal.Body>
+                <Modal.Footer />
+                <Button type="submit">Submit</Button>
+              </form>
+            </Modal>
+          </>
         </div>
       </div>
     );

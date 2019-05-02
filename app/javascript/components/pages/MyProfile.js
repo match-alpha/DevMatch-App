@@ -98,7 +98,7 @@ class MyProfile extends React.Component {
             <div className="jumbotron">
               <div>
                 <div className="avatarz">
-                  <User id="cardimage" user={user}/>
+                  <User id="cardimage" user={user} />
                 </div>
                 <div className="description">
                   <div>
