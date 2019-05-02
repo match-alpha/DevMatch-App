@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Card, Icon, Image, Grid, Button, Label } from "semantic-ui-react";
 import Select, { components } from "react-select";
+
+import ShowProfile from "../pages/ShowProfile"
 const user_type = [
   { label: "Mentor", value: "mentor" },
   { label: "Mentee", value: "mentee" },
@@ -142,6 +144,7 @@ class MediaCard extends React.Component {
                       </Card.Meta>
                       {user.skills.map((skill, index) => {
                         return (
+                          <div>
                           <Card.Description key={index}>
                             {skill.language === "Ruby" && (
                               <Label basic color="red">
@@ -164,12 +167,15 @@ class MediaCard extends React.Component {
                               </Label>
                             )}
                           </Card.Description>
+                          <br />
+                          <ShowProfile
+                            user = {user}
+                            profile = {user.profile}
+                            skill={skill}
+                            />
+                          </div>
                         );
                       })}
-                      <br />
-                      <Button basic color="teal">
-                        View Profile
-                      </Button>
                     </Card.Content>
                   </Card>
                 </Grid.Column>

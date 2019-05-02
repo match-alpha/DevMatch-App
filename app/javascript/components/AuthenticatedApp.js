@@ -4,6 +4,7 @@ import { CardColumns } from "react-bootstrap";
 import MediaCard from "./network_page/Cards";
 import User from "./avatar.js";
 import MyProfile from "./pages/MyProfile";
+import ShowProfile from "./pages/ShowProfile";
 
 import CreateProfile from "./pages/CreateProfile";
 

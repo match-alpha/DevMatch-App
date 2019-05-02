@@ -129,7 +129,6 @@ class MyProfile extends React.Component {
                 <div>{user.profile.twitter}</div>
               </Tab>
             </Tabs>
-            {user.user_type}
             <div>{user.profile.experience} </div>
             <div>{user.profile.education}</div>
             <div>{user.profile.about_me}</div>
