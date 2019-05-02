@@ -16,16 +16,19 @@ import {
   Col,
   Image,
   Tab,
-  Tabs
+  Tabs,
+  Modal
 } from "react-bootstrap";
 
 class EditProfile extends React.Component {
   constructor(props) {
     super(props);
+    this.handleShow = this.handleShow.bind(this);
+    this.handleClose = this.handleClose.bind(this);
     this.state = {
       //   responseOK: false,
       user: null,
-
+      show: false,
       form: {
         education: "",
         experience: "",
@@ -57,6 +60,7 @@ class EditProfile extends React.Component {
     //   .then(response => {
     //     this.setState({ responseOk: true });
     //   });
+    window.location.reload();
   };
 
   handleChange = event => {
@@ -64,6 +68,13 @@ class EditProfile extends React.Component {
     console.log(event.target);
     form[event.target.name] = event.target.value;
     this.setState({ form: form });
+  };
+  handleClose() {
+    this.setState({ show: false });
+  }
+
+  handleShow = () => {
+    this.setState({ show: true });
   };
 
   render() {
@@ -73,75 +84,95 @@ class EditProfile extends React.Component {
         {/* {profile && <Redirect to="/profile" />} */}
         <h1>Add aProfile </h1>
         <div>
-          <form onSubmit={this.handleSubmit}>
-            <input
-              onChange={this.handleChange}
-              s={12}
-              name="education"
-              label="education"
-              value={this.state.form.education}
-            />
+          <>
+            <Button variant="primary" onClick={this.handleShow}>
+              Click to Edit Profile
+            </Button>
 
-            <input
-              onChange={this.handleChange}
-              s={12}
-              name="experience"
-              label="experience"
-              value={this.state.form.experience}
-            />
-            <label>City</label>
-            <input
-              onChange={this.handleChange}
-              s={4}
-              name="city"
-              label="City"
-              value={this.state.form.city}
-            />
-            <input
-              onChange={this.handleChange}
-              s={4}
-              name="state"
-              label="State"
-              value={this.state.form.state}
-            />
-            <input
-              onChange={this.handleChange}
-              s={4}
-              name="github"
-              label="Github"
-              value={this.state.form.github}
-            />
-            <input
-              onChange={this.handleChange}
-              s={6}
-              name="linkedin"
-              label="Linkedin"
-              value={this.state.form.linkedin}
-            />
-            <input
-              onChange={this.handleChange}
-              s={6}
-              name="twitter"
-              label="Twitter"
-              value={this.state.form.twitter}
-            />
-            <input
-              onChange={this.handleChange}
-              s={6}
-              name="instagram"
-              label="Instagram"
-              value={this.state.form.instagram}
-            />
-            <label> About me</label>
-            <input
-              onChange={this.handleChange}
-              s={6}
-              name="about_me"
-              label="About me"
-              value={this.state.form.about_me}
-            />
-            <Button type="submit">Submit</Button>
-          </form>
+            <Modal show={this.state.show} onHide={this.handleClose}>
+              <form onSubmit={this.handleSubmit}>
+                <Modal.Header closeButton>
+                  <Modal.Title>Edit Profile</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  <label> Education</label>
+                  <input
+                    onChange={this.handleChange}
+                    s={12}
+                    name="education"
+                    label="education"
+                    value={this.state.form.education}
+                  />
+                  <label>Experience</label>
+                  <input
+                    onChange={this.handleChange}
+                    s={12}
+                    name="experience"
+                    label="experience"
+                    value={this.state.form.experience}
+                  />
+                  <label>City</label>
+                  <input
+                    onChange={this.handleChange}
+                    s={4}
+                    name="city"
+                    label="City"
+                    value={this.state.form.city}
+                  />
+                  <label>State</label>
+                  <input
+                    onChange={this.handleChange}
+                    s={4}
+                    name="state"
+                    label="State"
+                    value={this.state.form.state}
+                  />
+                  <label>Github</label>
+                  <input
+                    onChange={this.handleChange}
+                    s={4}
+                    name="github"
+                    label="Github"
+                    value={this.state.form.github}
+                  />
+                  <label>Linkedin</label>
+                  <input
+                    onChange={this.handleChange}
+                    s={6}
+                    name="linkedin"
+                    label="Linkedin"
+                    value={this.state.form.linkedin}
+                  />
+                  <label>Twitter</label>
+                  <input
+                    onChange={this.handleChange}
+                    s={6}
+                    name="twitter"
+                    label="Twitter"
+                    value={this.state.form.twitter}
+                  />
+                  <label>Instagram</label>
+                  <input
+                    onChange={this.handleChange}
+                    s={6}
+                    name="instagram"
+                    label="Instagram"
+                    value={this.state.form.instagram}
+                  />
+                  <label> About me</label>
+                  <textarea
+                    onChange={this.handleChange}
+                    s={6}
+                    name="about_me"
+                    label="About me"
+                    value={this.state.form.about_me}
+                  />
+                </Modal.Body>
+                <Modal.Footer />
+                <Button type="submit">Submit</Button>
+              </form>
+            </Modal>
+          </>
         </div>
       </div>
     );

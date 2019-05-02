@@ -32,7 +32,7 @@ class UnauthenticatedApp extends React.Component {
         <Navbar bg="primary" variant="dark" sticky="top">
           <Navbar.Brand img src={Logo} href="#home">
             <img
-              id = "navlogo"
+              id="navlogo"
               src={NavLogo}
               className="d-inline-block align-top"
               alt="React Bootstrap logo"
@@ -70,33 +70,32 @@ class UnauthenticatedApp extends React.Component {
             </center>
           </Container>
         </Jumbotron>
-      <div>
-        <ScrollableAnchor id={"mission"}>
-
-          <Jumbotron
-            id="mission"
-            href="#mission"
-            fluid
-            className="text-xs-center"
-          >
-            <Container>
-              <center>
-                <h1> Our Mission </h1>
-                <p>
-                  {" "}
-                  DevMatch is an app designed to connect current and aspiring
-                  software engineers seeking to improve their skills in a
-                  certain area with mentors who have real-world experience and
-                  are willing to share their knowledge. By allowing users to
-                  post their availability and seek out mentors by skill set,
-                  DevMatch is aiming to make the way we learn and teach a more
-                  open and communal experience.{" "}
-                </p>
-              </center>
-            </Container>
-          </Jumbotron>
-        </ScrollableAnchor>
-      </div>
+        <div>
+          <ScrollableAnchor id={"mission"}>
+            <Jumbotron
+              id="mission"
+              href="#mission"
+              fluid
+              className="text-xs-center"
+            >
+              <Container>
+                <center>
+                  <h1> Our Mission </h1>
+                  <p>
+                    {" "}
+                    DevMatch is an app designed to connect current and aspiring
+                    software engineers seeking to improve their skills in a
+                    certain area with mentors who have real-world experience and
+                    are willing to share their knowledge. By allowing users to
+                    post their availability and seek out mentors by skill set,
+                    DevMatch is aiming to make the way we learn and teach a more
+                    open and communal experience.{" "}
+                  </p>
+                </center>
+              </Container>
+            </Jumbotron>
+          </ScrollableAnchor>
+        </div>
         <ScrollableAnchor id={"tech"}>
           <Jumbotron id="tech" fluid className="text-xs-center">
             <Container>
@@ -164,9 +163,8 @@ class UnauthenticatedApp extends React.Component {
               </Container>
             </Container>
           </Jumbotron>
-          </ScrollableAnchor>
-        </div>
-
+        </ScrollableAnchor>
+      </div>
     );
   }
 }
