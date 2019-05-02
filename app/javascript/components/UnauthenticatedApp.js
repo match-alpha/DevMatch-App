@@ -58,11 +58,11 @@ class UnauthenticatedApp extends React.Component {
               <p>Where developers come to teach and learn</p>
 
               <div id="front">
-                <a href="http://localhost:3000/users/sign_up">
+                <a href="/users/sign_up">
                   <Button color="primary">Sign Up</Button>
                 </a>
 
-                <a href="http://localhost:3000/users/sign_in">
+                <a href="/users/sign_in">
                   <Button color="primary">Log In</Button>
                 </a>
               </div>
