@@ -5,6 +5,7 @@ import MediaCard from "./network_page/Cards";
 import MyProfile from "./pages/MyProfile";
 import Profilepage from "./pages/profilepage";
 import EditProfile from "./pages/EditProfile";
+import ShowProfile from "./pages/ShowProfile";
 import CreateProfile from "./pages/CreateProfile";
 
 class AuthenticatedApp extends React.Component {

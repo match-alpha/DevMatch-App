@@ -74,6 +74,7 @@ class EditProfile extends React.Component {
         <h1>Add aProfile </h1>
         <div>
           <form onSubmit={this.handleSubmit}>
+          <label>Education</label>
             <input
               onChange={this.handleChange}
               s={12}
@@ -82,6 +83,7 @@ class EditProfile extends React.Component {
               value={this.state.form.education}
             />
 
+            <label>Experience</label>
             <input
               onChange={this.handleChange}
               s={12}
@@ -97,6 +99,7 @@ class EditProfile extends React.Component {
               label="City"
               value={this.state.form.city}
             />
+            <label>State</label>
             <input
               onChange={this.handleChange}
               s={4}
@@ -104,6 +107,7 @@ class EditProfile extends React.Component {
               label="State"
               value={this.state.form.state}
             />
+            <label>Github</label>
             <input
               onChange={this.handleChange}
               s={4}
@@ -111,6 +115,7 @@ class EditProfile extends React.Component {
               label="Github"
               value={this.state.form.github}
             />
+            <label>LinkedIn</label>
             <input
               onChange={this.handleChange}
               s={6}
@@ -118,6 +123,7 @@ class EditProfile extends React.Component {
               label="Linkedin"
               value={this.state.form.linkedin}
             />
+            <label>Twitter</label>
             <input
               onChange={this.handleChange}
               s={6}
@@ -125,6 +131,7 @@ class EditProfile extends React.Component {
               label="Twitter"
               value={this.state.form.twitter}
             />
+            <label>Instagram</label>
             <input
               onChange={this.handleChange}
               s={6}
