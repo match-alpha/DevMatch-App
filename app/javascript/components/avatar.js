@@ -20,11 +20,10 @@ class User extends React.Component {
     const{ user } = this.state
     return (
       <React.Fragment>
-        
+
         { user && user.avatar_url &&
           <div>
-            <h2>Your Avatar is: </h2>
-            <img src={user.avatar_url} />
+            <img id="cardimage" src={user.avatar_url} />
           </div>
         }
         <ActiveStorageProvider

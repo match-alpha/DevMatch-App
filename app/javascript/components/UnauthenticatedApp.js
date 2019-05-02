@@ -23,7 +23,7 @@ import Dante from "./images/dante.png";
 import { HashLink as Link } from "react-router-hash-link";
 import ScrollableAnchor, { configureAnchors } from "react-scrollable-anchor";
 
-configureAnchors({ offset: -100 });
+configureAnchors({ offset: -85 });
 
 class UnauthenticatedApp extends React.Component {
   render() {
@@ -32,6 +32,7 @@ class UnauthenticatedApp extends React.Component {
         <Navbar bg="primary" variant="dark" sticky="top">
           <Navbar.Brand img src={Logo} href="#home">
             <img
+              id = "navlogo"
               src={NavLogo}
               className="d-inline-block align-top"
               alt="React Bootstrap logo"
@@ -58,19 +59,20 @@ class UnauthenticatedApp extends React.Component {
               <p>Where developers come to teach and learn</p>
 
               <div id="front">
-                <a href="http://localhost:3000/users/sign_up">
+                <a href="/users/sign_up">
                   <Button color="primary">Sign Up</Button>
                 </a>
 
-                <a href="http://localhost:3000/users/sign_in">
+                <a href="/users/sign_in">
                   <Button color="primary">Log In</Button>
                 </a>
               </div>
             </center>
           </Container>
         </Jumbotron>
-
+      <div>
         <ScrollableAnchor id={"mission"}>
+
           <Jumbotron
             id="mission"
             href="#mission"
@@ -94,7 +96,7 @@ class UnauthenticatedApp extends React.Component {
             </Container>
           </Jumbotron>
         </ScrollableAnchor>
-
+      </div>
         <ScrollableAnchor id={"tech"}>
           <Jumbotron id="tech" fluid className="text-xs-center">
             <Container>
@@ -162,8 +164,9 @@ class UnauthenticatedApp extends React.Component {
               </Container>
             </Container>
           </Jumbotron>
-        </ScrollableAnchor>
-      </div>
+          </ScrollableAnchor>
+        </div>
+
     );
   }
 }
