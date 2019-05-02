@@ -2,9 +2,27 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Card, Icon, Image, Grid, Button, Label } from "semantic-ui-react";
 import Select, { components } from "react-select";
+import ActiveStorageProvider from 'react-activestorage-provider';
+import Logo from "../images/Logo.png";
+import NavLogo from "../images/NavbarLogo.png";
+import {
+  Nav,
+  Navbar,
+  Form,
+  NavDropdown,
+  FormControl,
+  Container,
+  Jumbotron,
+  Row,
+  Col,
+  Tab,
+  Tabs
+} from "react-bootstrap";
+
+
 const user_type = [
-  { label: "Mentor", value: "mentor" },
-  { label: "Mentee", value: "mentee" },
+  { label: "Mentor", value: "Mentor" },
+  { label: "Mentee", value: "Mentee" },
   { label: "All", value: "" }
 ];
 const language = [
@@ -25,7 +43,7 @@ class MediaCard extends React.Component {
       users: [],
       skills: [],
       term: "",
-      userTypeSearch: ""
+      userTypeSearch: "",
     };
     this.searchHandler = this.searchHandler.bind(this);
   }
@@ -85,44 +103,56 @@ class MediaCard extends React.Component {
     const { users, skills, term, userTypeSearch } = this.state;
     // const { id } = this.props.current_user;
     return (
-      <div>
-        <form>
-          <label>
-            <input
-              type="radio"
-              value=""
-              checked={this.state.userTypeSearch === ""}
-              onChange={this.handleChangeRadio}
+      <div id="background1">
+        <Navbar bg="primary" variant="dark" sticky="top">
+          <Navbar.Brand img="true" img src={Logo} href="#home">
+            <img
+              src={NavLogo}
+              className="d-inline-block align-top"
+              alt="React Bootstrap logo"
             />
-            All
-          </label>
-          <label>
-            <input
-              type="radio"
-              value="mentor"
-              checked={this.state.userTypeSearch === "mentor"}
-              onChange={this.handleChangeRadio}
-            />
-            Mentor
-          </label>
+          </Navbar.Brand>
+          <Nav className="ml-auto">
+            <Nav.Link href="#mission">Home</Nav.Link>
+            <Nav.Link href="#tech">Network</Nav.Link>
+            <Nav.Link href="#about">Profile</Nav.Link>
+          </Nav>
+        </Navbar>
+        <h3> I'm Looking for a: </h3>
 
-          <label>
-            <input
-              type="radio"
-              value="mentee"
-              checked={this.state.userTypeSearch === "mentee"}
-              onChange={this.handleChangeRadio}
-            />
-            Mentee
-          </label>
+        <form>
+
+        <input type="radio" id="radio-btn-1" name="radio-btns" value=""
+        checked={this.state.userTypeSearch === ""}
+        onChange={this.handleChangeRadio} />
+        <label for="radio-btn-1" class="btn"> All </label>
+
+        <input type="radio" id="radio-btn-2" name="radio-btns" value="Mentor"
+        checked={this.state.userTypeSearch === "Mentor"}
+        onChange={this.handleChangeRadio} />
+        <label for="radio-btn-2" class="btn">Mentor</label>
+
+        <input type="radio" id="radio-btn-3" name="radio-btns" value="Mentee"
+        checked={this.state.userTypeSearch === "Mentee"}
+        onChange={this.handleChangeRadio} />
+        <label for="radio-btn-3" class="btn">Mentee</label>
+
         </form>
+
+        <br />
+
         <form>
           <Select
             onChange={this.searchHandler}
             value={term}
             options={language}
+            placeholder = "Select a language you want to learn:"
           />
         </form>
+
+        <br />
+        <br />
+        <div className = "swag">
         <Grid relaxed columns={4}>
           {this.state.users
             .filter(this.searchingFor(this.state.term))
@@ -130,15 +160,15 @@ class MediaCard extends React.Component {
               return (
                 <Grid.Column key={index}>
                   <Card>
-                    <Image src="http://hot97svg.com/wp-content/uploads/2018/05/um-maluco-no-pedao-will-smith.jpg" />
+                    <Image id="cardimage" src={user.avatar_url} />
 
                     <Card.Content>
                       <Card.Header>{user.first_name}</Card.Header>
-                      <Label color="red" ribbon>
+                      <Label color="#57bf96" ribbon>
                         {user.user_type}
                       </Label>
                       <Card.Meta>
-                        <span className="date">{user.user_type}</span>
+                        <span className="date">    </span>
                       </Card.Meta>
                       {user.skills.map((skill, index) => {
                         return (
@@ -176,6 +206,7 @@ class MediaCard extends React.Component {
               );
             })}
         </Grid>
+        </div>
       </div>
     );
   }

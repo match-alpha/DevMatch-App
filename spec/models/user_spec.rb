@@ -28,9 +28,9 @@ RSpec.describe User, type: :model do
 
   it "should create profile" do
     user= User.create(last_name:"Teshome", first_name:"Elshaday", email:"elshadaytesh@gmail.com", password:"123456", user_type: "Mentor")
-    
+
     expect(user.valid?).to eq(true)
     expect(user.profile).to_not be_nil
   end
-  
+
 end

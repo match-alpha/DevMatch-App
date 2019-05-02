@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import { CardColumns } from "react-bootstrap";
+import { Card, Grid, CardColumns, Container, Row, Col, CardGroup } from "react-bootstrap";
 import MediaCard from "./network_page/Cards";
-import User from "./avatar.js";
 import MyProfile from "./pages/MyProfile";
-
+import Profilepage from "./pages/profilepage";
+import EditProfile from "./pages/EditProfile";
 import CreateProfile from "./pages/CreateProfile";
 
 class AuthenticatedApp extends React.Component {
@@ -13,7 +13,7 @@ class AuthenticatedApp extends React.Component {
       <Router>
         <React.Fragment>
           <Switch>
-            <Route
+          <Route
               exact
               path="/profile"
               render={props => (
