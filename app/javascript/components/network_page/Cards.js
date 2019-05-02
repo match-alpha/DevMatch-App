@@ -113,9 +113,9 @@ class MediaCard extends React.Component {
             />
           </Navbar.Brand>
           <Nav className="ml-auto">
-            <Nav.Link href="#mission">Home</Nav.Link>
-            <Nav.Link href="#tech">Network</Nav.Link>
-            <Nav.Link href="#about">Profile</Nav.Link>
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/network">Network</Nav.Link>
+            <Nav.Link href="/profile">Profile</Nav.Link>
           </Nav>
         </Navbar>
         <h3> I'm Looking for a: </h3>
