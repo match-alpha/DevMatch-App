@@ -42,6 +42,8 @@ class UnauthenticatedApp extends React.Component {
             <Nav.Link href="#mission">Mission</Nav.Link>
             <Nav.Link href="#tech">Tech Stack</Nav.Link>
             <Nav.Link href="#about">About Us</Nav.Link>
+            
+
           </Nav>
         </Navbar>
 
