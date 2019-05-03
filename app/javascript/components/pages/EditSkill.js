@@ -77,95 +77,44 @@ class EditProfile extends React.Component {
     this.setState({ show: true });
   };
 
+  handleClose() {
+    this.setState({ show: false });
+  }
+
+  handleShow = () => {
+    this.setState({ show: true });
+  };
+
   render() {
     const { responseOk, form, profile } = this.state;
     return (
       <div>
         {/* {profile && <Redirect to="/profile" />} */}
-        <h1>Add aProfile </h1>
         <div>
           <>
-            <Button variant="primary" onClick={this.handleShow}>
-              Click to Edit Profile
-            </Button>
+            <button type="button" class="btn btn-info" onClick={this.handleShow}>
+              Edit Skill
+            </button>
 
             <Modal show={this.state.show} onHide={this.handleClose}>
               <form onSubmit={this.handleSubmit}>
                 <Modal.Header closeButton>
-                  <Modal.Title>Edit Profile</Modal.Title>
+                  <Modal.Title>Edit Skill</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                  <label> Education</label>
+                  <label>Language</label>
                   <input
                     onChange={this.handleChange}
                     s={12}
-                    name="education"
-                    label="education"
-                    value={this.state.form.education}
+                    name="language"
+                    label="language"
                   />
-                  <label>Experience</label>
+                  <label>Framework</label>
                   <input
                     onChange={this.handleChange}
                     s={12}
-                    name="experience"
-                    label="experience"
-                    value={this.state.form.experience}
-                  />
-                  <label>City</label>
-                  <input
-                    onChange={this.handleChange}
-                    s={4}
-                    name="city"
-                    label="City"
-                    value={this.state.form.city}
-                  />
-                  <label>State</label>
-                  <input
-                    onChange={this.handleChange}
-                    s={4}
-                    name="state"
-                    label="State"
-                    value={this.state.form.state}
-                  />
-                  <label>Github</label>
-                  <input
-                    onChange={this.handleChange}
-                    s={4}
-                    name="github"
-                    label="Github"
-                    value={this.state.form.github}
-                  />
-                  <label>Linkedin</label>
-                  <input
-                    onChange={this.handleChange}
-                    s={6}
-                    name="linkedin"
-                    label="Linkedin"
-                    value={this.state.form.linkedin}
-                  />
-                  <label>Twitter</label>
-                  <input
-                    onChange={this.handleChange}
-                    s={6}
-                    name="twitter"
-                    label="Twitter"
-                    value={this.state.form.twitter}
-                  />
-                  <label>Instagram</label>
-                  <input
-                    onChange={this.handleChange}
-                    s={6}
-                    name="instagram"
-                    label="Instagram"
-                    value={this.state.form.instagram}
-                  />
-                  <label> About me</label>
-                  <textarea
-                    onChange={this.handleChange}
-                    s={6}
-                    name="about_me"
-                    label="About me"
-                    value={this.state.form.about_me}
+                    name="framework"
+                    label="framework"
                   />
                 </Modal.Body>
                 <Modal.Footer />
