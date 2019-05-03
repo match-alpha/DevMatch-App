@@ -3,20 +3,8 @@ import PropTypes from "prop-types";
 import { Redirect } from "react-router-dom";
 
 import {
-  Nav,
-  Navbar,
-  Logo,
-  NavLogo,
-  Form,
-  NavDropdown,
-  FormControl,
-  Container,
-  Jumbotron,
+ 
   Button,
-  Col,
-  Image,
-  Tab,
-  Tabs,
   Modal
 } from "react-bootstrap";
 

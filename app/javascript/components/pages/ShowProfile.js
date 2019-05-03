@@ -2,28 +2,21 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Button, Modal, Image } from 'react-bootstrap'
 import ActiveStorageProvider from 'react-activestorage-provider';
-
 class ShowProfile extends React.Component {
   constructor(props, context) {
     super(props, context);
-
     this.handleShow = this.handleShow.bind(this);
     this.handleClose = this.handleClose.bind(this);
-
     this.state = {
       show: false,
     };
   }
-
   handleClose() {
     this.setState({ show: false });
   }
-
   handleShow() {
     this.setState({ show: true });
   }
-
-
 render() {
   let { user, skill, profile} = this.props
   return (
@@ -31,7 +24,6 @@ render() {
       <Button variant="primary" onClick={this.handleShow}>
         View Profile
       </Button>
-
       <Modal show={this.state.show} onHide={this.handleClose}>
       <Modal.Header closeButton>
       <Image wrapped size="medium" id="cardimage" src={user.avatar_url} />
@@ -80,9 +72,8 @@ render() {
              </span>
         </h4>
       </Modal.Body>
-
       <Modal.Footer>
-        <Button color='black' >
+        <Button color='teal' >
           <a href="mailto:?Subject=Hello%20again" target="_top">Send Mail</a>
         </Button>
           <Button color='black' onClick={this.handleClose}>Close</Button>
@@ -92,5 +83,4 @@ render() {
     );
   }
 }
-
 export default ShowProfile

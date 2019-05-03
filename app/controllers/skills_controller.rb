@@ -62,7 +62,9 @@ class SkillsController < ActionController::API
   # DELETE /skills/1.json
   def destroy
     @skill = Skill.find(params[:id])
-    @skill.destroy
+    if @skill.destroy
+      render json: Skill.all
+    end
     # respond_to do |format|
     #   format.html { redirect_to skills_url, notice: 'Skill was successfully destroyed.' }
     #   format.json { head :no_content }

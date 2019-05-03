@@ -172,66 +172,65 @@ class MediaCard extends React.Component {
 
         <br />
         <br />
-
-        <div className = "swag">
-        <Grid relaxed columns={4}>
-          {this.state.users
-            .filter(this.searchingFor(this.state.term))
-            .map((user, index) => {
-              return (
-                <Grid.Column key={index}>
-                  <Card>
-                    <Image id="cardimage" src={user.avatar_url} />
-
-                    <Card.Content>
-                      <Card.Header>{user.first_name}</Card.Header>
-                      <Label color="red" ribbon>
-                        {user.user_type}
-                      </Label>
-                      <Card.Meta>
-                        <span className="date"></span>
-                      </Card.Meta>
-                      <br />
-                      {user.skills.map((skill, index) => {
-                        return (
-                          <div>
-                          <Card.Description key={index}>
-                            {skill.language === "Ruby" && (
-                              <Label basic color="red">
-                                Ruby
-                              </Label>
-                            )}
-                            {skill.language === "Javascript" && (
-                              <Label basic color="yellow">
-                                Javascript
-                              </Label>
-                            )}
-                            {skill.framework === "React" && (
-                              <Label basic color="blue">
-                                React
-                              </Label>
-                            )}
-                            {skill.framework === "Rails" && (
-                              <Label basic color="pink">
-                                Rails
-                              </Label>
-                            )}
-                          </Card.Description>
-                          <br />
-                          <ShowProfile
+        <div className="swag">
+          <Grid relaxed columns={4}>
+            {this.state.users
+              .filter(this.searchingFor(this.state.term))
+              .map((user, index) => {
+                return (
+                  <Grid.Column key={index}>
+                    <Card>
+                      <Image id="cardimage" src={user.avatar_url} />
+                      <Card.Content>
+                        <Card.Header>{user.first_name}</Card.Header>
+                        <Label color="red" ribbon>
+                          {user.user_type}
+                        </Label>
+                        <Card.Meta>
+                          <span className="date"> </span>
+                        </Card.Meta>
+                        {user.skills.map((skill, index) => {
+                          return (
+                            <div>
+                            <Card.Description key={index}>
+                              {skill.language === "Ruby" && (
+                                <Label basic color="red">
+                                  Ruby
+                                </Label>
+                              )}
+                              {skill.language === "Javascript" && (
+                                <Label basic color="yellow">
+                                  Javascript
+                                </Label>
+                              )}
+                              {skill.framework === "React" && (
+                                <Label basic color="blue">
+                                  React
+                                </Label>
+                              )}
+                              {skill.framework === "Rails" && (
+                                <Label basic color="pink">
+                                  Rails
+                                </Label>
+                              )}
+                            </Card.Description>
+                            <br />
+                            <br />
+                            <ShowProfile
                             user = {user}
                             profile = {user.profile}
-                            skill={skill}
+                            skill = {skill}
                             />
-                          </div>
-                        );
-                      })}
-                    </Card.Content>
-                  </Card>
-                </Grid.Column>
-              );
-            })}
-        </Grid>
+                            </div>
+                          );
+                        })}
+                        <br />
+                      </Card.Content>
+                    </Card>
+                  </Grid.Column>
+                );
+              })}
+          </Grid>
         </div>
       </div>
     );
