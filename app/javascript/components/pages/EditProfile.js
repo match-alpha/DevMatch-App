@@ -85,9 +85,9 @@ class EditProfile extends React.Component {
 
         <div>
           <>
-            <Button variant="primary" onClick={this.handleShow}>
-              Click to Edit Profile
-            </Button>
+            <button type="button" class="btn btn-info" onClick={this.handleShow}>
+              Edit Profile
+            </button>
 
             <Modal show={this.state.show} onHide={this.handleClose}>
               <form onSubmit={this.handleSubmit}>

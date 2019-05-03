@@ -71,7 +71,7 @@ class MyProfile extends React.Component {
           profile: destoryProfile
 
         });
-  
+
       })
       .catch(e => alert(e));
   };
@@ -99,6 +99,8 @@ class MyProfile extends React.Component {
                 </Nav>
               </Navbar>
             </Router>
+
+          <div id="profilepage">
             <div className="jumbotron">
               <div>
                 <div className="avatarz">
@@ -125,67 +127,83 @@ class MyProfile extends React.Component {
                     <h4>
                       Location: {user.profile.city}, {user.profile.state}
                     </h4>
+                    <div>
+                    <br />
+                    <EditProfile profile={this.props.profile} />
+                    <br />
+
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    </div>
                   </div>
                 </div>
               </div>
-              <hr className="my-4" />
-              <EditProfile profile={this.props.profile} />
+
+
+
+              <br />
+
+
+
+              <Tabs defaultActiveKey="skill" id="uncontrolled-tab-example">
+
+                <Tab eventKey="skill" title="Skills">
+
+                  {user.skills.map((skill, index) => {
+                    return (
+                      <div key={index}>
+                        <div className="language">
+                          <h2 className="languages"> Language</h2>
+                          <h3>{skill.language}</h3>
+                        </div>
+                        <div className="framework">
+                          <h2 className= "languages"> Framework</h2>
+                          <h3>{skill.framework}</h3>
+                        </div>
+                        <div className="skills">
+                        <EditSkill skill={skill} />
+                        </div>
+                        <div className="delete">
+                        <button class="btn btn-danger"
+
+                          id="submit"
+                          onClick={() => this.handleDelete(skill)}
+                          type="button"
+                        >
+                          Delete Skill
+                        </button>
+                      </div>
+                      </div>
+
+                    );
+                  })}
+                  <CreateSkill />
+                </Tab>
+
+                <Tab eventKey="about_me" title="About Me">
+                  <h3>{user.profile.about_me}</h3>
+                  <h3>
+                    {user.first_name} attended {user.profile.education}
+                  </h3>
+                  <h3>
+                    {" "}
+                    Has Programing experience at {user.profile.experience}{" "}
+                  </h3>
+                </Tab>
+
+                <Tab eventKey="contact" title="Contact">
+                  <h3> For more contact:</h3>
+
+                  <h3> Linkedin: {user.profile.linkedin}</h3>
+                  <h3>Instagram:{user.profile.instagram}</h3>
+                  <h3>Twitter: {user.profile.twitter}</h3>
+                </Tab>
+              </Tabs>
+            </div>
             </div>
 
-            <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
-              <Tab eventKey="skill" title="Skills" className="nav-link active">
-                {user.skills.map((skill, index) => {
-                  return (
-                    <div key={index}>
-                      <div className="language">
-                        <h2 className="languages"> Language</h2>
-                        <h3>{skill.language}</h3>
-                      </div>
-                      <div className="framework">
-                        <h2 className= "languages"> Framework</h2>
-                        <h3>{skill.framework}</h3>
-                      </div>
-                      <div className="skills">
-                      <EditSkill skill={skill} />
-                      </div>
-                      <div className="delete">
-                      <Button
-
-                        id="submit"
-                        onClick={() => this.handleDelete(skill)}
-                        type="button"
-                      >
-                        Delete Skill
-                      </Button>
-                    </div>
-                    </div>
-
-                  );
-                })}
-                <CreateSkill />
-              </Tab>
-              <Tab eventKey="about_me" title="About Me">
-                <h3>{user.profile.about_me}</h3>
-              </Tab>
-
-              <Tab eventKey="Experience" title="Experience/ Education">
-                <h3>
-                  {user.first_name} attended {user.profile.education}
-                </h3>
-                <h3>
-                  {" "}
-                  Has Programing experience at {user.profile.experience}{" "}
-                </h3>
-              </Tab>
-
-              <Tab eventKey="contact" title="Contact">
-                <h3> For more contact:</h3>
-
-                <h3 className="linkedin"> Linkedin: {user.profile.linkedin}</h3>
-                <h3>Instagram:{user.profile.instagram}</h3>
-                <h3>Twitter: {user.profile.twitter}</h3>
-              </Tab>
-            </Tabs>
           </div>
         )}
       </div>

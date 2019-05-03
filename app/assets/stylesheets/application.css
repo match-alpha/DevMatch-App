@@ -63,10 +63,11 @@ input[type="reset"] {
 
 .avatarz {
   display: inline-block;
+  margin: -top: 10%;
 }
 
 .description {
-  margin-top: auto;
+  display: inline-block;
 }
 
 .language {

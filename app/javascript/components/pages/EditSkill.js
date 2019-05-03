@@ -78,9 +78,9 @@ class EditSkill extends React.Component {
         {/* {profile && <Redirect to="/profile" />} */}
         <div>
           <>
-            <Button variant="primary" onClick={this.handleShow}>
-              Click to Edit Skill
-            </Button>
+            <button type="button" class="btn btn-info" onClick={this.handleShow}>
+              Edit Skill
+            </button>
 
             <Modal show={this.state.show} onHide={this.handleClose}>
               <form onSubmit={this.handleSubmit}>

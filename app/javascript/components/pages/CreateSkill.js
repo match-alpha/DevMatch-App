@@ -75,8 +75,9 @@ class CreateSkill extends React.Component {
         {/* {responseOk && <Redirect to="/profile" />} */}
         <div>
           <>
+          <br />
             <Button variant="primary" onClick={this.handleShow}>
-              Click to Add Skill
+              Add Skill
             </Button>
 
             <Modal show={this.state.show} onHide={this.handleClose}>
