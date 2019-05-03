@@ -55,8 +55,8 @@ class MyProfile extends React.Component {
         this.setState({
           skill: destorySkill
         });
-      })
         window.location.reload();
+      })
 
 
   };

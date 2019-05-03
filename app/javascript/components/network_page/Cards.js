@@ -191,6 +191,7 @@ class MediaCard extends React.Component {
                         </Card.Meta>
                         {user.skills.map((skill, index) => {
                           return (
+                            <div>
                             <Card.Description key={index}>
                               {skill.language === "Ruby" && (
                                 <Label basic color="red">
@@ -213,12 +214,17 @@ class MediaCard extends React.Component {
                                 </Label>
                               )}
                             </Card.Description>
+                            <br />
+                            <br />
+                            <ShowProfile
+                            user = {user}
+                            profile = {user.profile}
+                            skill = {skill}
+                            />
+                            </div>
                           );
                         })}
                         <br />
-                        <Button basic color="teal">
-                          View Profile
-                        </Button>
                       </Card.Content>
                     </Card>
                   </Grid.Column>
