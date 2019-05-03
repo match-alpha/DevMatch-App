@@ -124,7 +124,7 @@ class MediaCard extends React.Component {
         <form>
 
         <input type="radio" id="radio-btn-1" name="radio-btns" value=""
-        checked={this.state.userTypeSearch === "All"}
+        checked={this.state.userTypeSearch === ""}
         onChange={this.handleChangeRadio} />
         <label for="radio-btn-1" class="btn"> All </label>
 
