@@ -60,3 +60,31 @@ input[type="reset"] {
 .github {
   display: flex;
 }
+
+.avatarz {
+  display: inline-block;
+}
+
+.description {
+  margin-top: auto;
+}
+
+.language {
+  display: inline-block;
+  padding-left:
+}
+
+.framework {
+  display: inline-block;
+}
+.languages{
+  padding: 10px;
+}
+
+.skills{
+  display: inline-block;
+}
+.delete{
+  display: inline-block;
+  padding: 10px;
+}

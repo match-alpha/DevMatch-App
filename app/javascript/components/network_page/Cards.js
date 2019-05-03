@@ -181,11 +181,9 @@ class MediaCard extends React.Component {
                   <Grid.Column key={index}>
                     <Card>
                       <Image id="cardimage" src={user.avatar_url} />
-
-<<<<<<< HEAD
                       <Card.Content>
                         <Card.Header>{user.first_name}</Card.Header>
-                        <Label color="#57bf96" ribbon>
+                        <Label color="red" ribbon>
                           {user.user_type}
                         </Label>
                         <Card.Meta>
@@ -227,56 +225,6 @@ class MediaCard extends React.Component {
                 );
               })}
           </Grid>
-=======
-                    <Card.Content>
-                      <Card.Header>{user.first_name}</Card.Header>
-                      <Label color="#57bf96" ribbon>
-                        {user.user_type}
-                      </Label>
-                      <Card.Meta>
-                        <span className="date">    </span>
-                      </Card.Meta>
-                      {user.skills.map((skill, index) => {
-                        return (
-                          <div>
-                          <Card.Description key={index}>
-                            {skill.language === "Ruby" && (
-                              <Label basic color="red">
-                                Ruby
-                              </Label>
-                            )}
-                            {skill.language === "Javascript" && (
-                              <Label basic color="yellow">
-                                Javascript
-                              </Label>
-                            )}
-                            {skill.framework === "React" && (
-                              <Label basic color="blue">
-                                React
-                              </Label>
-                            )}
-                            {skill.framework === "Rails" && (
-                              <Label basic color="pink">
-                                Rails
-                              </Label>
-                            )}
-                          </Card.Description>
-                          <br />
-                          <ShowProfile
-                            user = {user}
-                            profile = {user.profile}
-                            skill={skill}
-                            />
-                          </div>
-                        );
-                      })}
-                    </Card.Content>
-                  </Card>
-                </Grid.Column>
-              );
-            })}
-        </Grid>
->>>>>>> c54a77af62220597f054100b41e021533704f2b8
         </div>
       </div>
     );

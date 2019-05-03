@@ -73,7 +73,6 @@ class CreateSkill extends React.Component {
     return (
       <div>
         {/* {responseOk && <Redirect to="/profile" />} */}
-        <h1>Add a skill</h1>
         <div>
           <>
             <Button variant="primary" onClick={this.handleShow}>

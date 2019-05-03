@@ -82,7 +82,7 @@ class EditProfile extends React.Component {
     return (
       <div>
         {/* {profile && <Redirect to="/profile" />} */}
-        <h1>Add aProfile </h1>
+
         <div>
           <>
             <Button variant="primary" onClick={this.handleShow}>

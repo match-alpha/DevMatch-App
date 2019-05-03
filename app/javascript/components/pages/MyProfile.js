@@ -56,18 +56,22 @@ class MyProfile extends React.Component {
           skill: destorySkill
         });
       })
+        window.location.reload();
 
-      .catch(e => alert(e));
+
   };
 
   handleDeleted = profile => {
     return fetch(`/profiles/${this.props.profile}`, {
       method: "DELETE"
     })
+
       .then(destoryProfile => {
         this.setState({
           profile: destoryProfile
+
         });
+  
       })
       .catch(e => alert(e));
   };
@@ -104,45 +108,49 @@ class MyProfile extends React.Component {
                   <div>
                     <h2 className="name">
                       {user.first_name} {user.last_name}
+
                     </h2>
+                    <h2>{user.user_type}</h2>
                   </div>
                   <div>
-                    <h3 className="github">Github: {user.profile.github}</h3>
+                    <h4 className="github">Github: {user.profile.github}</h4>
                   </div>
 
                   <div>
-                    <h3> Email: {user.email}</h3>
+                    <h4 className="email"> Email: {user.email}</h4>
                   </div>
+
 
                   <div className="location">
-                    <h3>
+                    <h4>
                       Location: {user.profile.city}, {user.profile.state}
-                    </h3>
+                    </h4>
                   </div>
                 </div>
               </div>
               <hr className="my-4" />
-              <h3>{user.user_type}</h3>
               <EditProfile profile={this.props.profile} />
             </div>
 
             <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
-              <Tab eventKey="skill" title="Skills">
+              <Tab eventKey="skill" title="Skills" className="nav-link active">
                 {user.skills.map((skill, index) => {
                   return (
                     <div key={index}>
                       <div className="language">
-                        <h2> Language</h2>
+                        <h2 className="languages"> Language</h2>
                         <h3>{skill.language}</h3>
                       </div>
                       <div className="framework">
-                        <h2> Framework</h2>
+                        <h2 className= "languages"> Framework</h2>
                         <h3>{skill.framework}</h3>
                       </div>
-
+                      <div className="skills">
                       <EditSkill skill={skill} />
+                      </div>
+                      <div className="delete">
                       <Button
-                        className=""
+
                         id="submit"
                         onClick={() => this.handleDelete(skill)}
                         type="button"
@@ -150,6 +158,8 @@ class MyProfile extends React.Component {
                         Delete Skill
                       </Button>
                     </div>
+                    </div>
+
                   );
                 })}
                 <CreateSkill />

@@ -15,7 +15,8 @@ import {
   Col,
   Image,
   Tab,
-  Tabs
+  Tabs,
+  Modal
 } from "react-bootstrap";
 
 class EditSkill extends React.Component {
@@ -75,7 +76,6 @@ class EditSkill extends React.Component {
     return (
       <div>
         {/* {profile && <Redirect to="/profile" />} */}
-        <h1> Edit Skill</h1>
         <div>
           <>
             <Button variant="primary" onClick={this.handleShow}>
