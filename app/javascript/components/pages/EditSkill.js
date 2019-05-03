@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Redirect } from "react-router-dom";
+
 import {
   Nav,
   Navbar,
@@ -19,7 +20,7 @@ import {
   Modal
 } from "react-bootstrap";
 
-class EditSkill extends React.Component {
+class EditProfile extends React.Component {
   constructor(props) {
     super(props);
     this.handleShow = this.handleShow.bind(this);
@@ -29,27 +30,32 @@ class EditSkill extends React.Component {
       user: null,
       show: false,
       form: {
-        language: "",
-        framework: ""
+        education: "",
+        experience: "",
+        about_me: "",
+        city: "",
+        state: "",
+        github: "",
+        linkedin: "",
+        twitter: "",
+        instagram: ""
       }
     };
   }
 
-  handleSubmit = skill => {
+  handleSubmit = profile => {
     event.preventDefault();
     console.log(this.props);
-    fetch(`/skills/${this.props.skill.id}.json`, {
+    fetch(`/profiles/${this.props.profile}.json`, {
       method: "PUT",
-      headers: {
-        "Content-Type": "application/json"
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(this.state.form)
     })
       .then(response => response.json())
 
       .then(json => {
         console.log(json);
-        this.setState({ skill: json });
+        this.setState({ profile: json });
       });
     //   .then(response => {
     //     this.setState({ responseOk: true });
@@ -63,6 +69,13 @@ class EditSkill extends React.Component {
     form[event.target.name] = event.target.value;
     this.setState({ form: form });
   };
+  handleClose() {
+    this.setState({ show: false });
+  }
+
+  handleShow = () => {
+    this.setState({ show: true });
+  };
 
   handleClose() {
     this.setState({ show: false });
@@ -73,6 +86,7 @@ class EditSkill extends React.Component {
   };
 
   render() {
+    const { responseOk, form, profile } = this.state;
     return (
       <div>
         {/* {profile && <Redirect to="/profile" />} */}
@@ -114,4 +128,4 @@ class EditSkill extends React.Component {
   }
 }
 
-export default EditSkill;
+export default EditProfile;

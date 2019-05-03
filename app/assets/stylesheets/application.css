@@ -89,3 +89,6 @@ input[type="reset"] {
   display: inline-block;
   padding: 10px;
 }
+.working {
+  padding: 20px;
+}
