@@ -124,7 +124,7 @@ class MediaCard extends React.Component {
         <form>
 
         <input type="radio" id="radio-btn-1" name="radio-btns" value=""
-        checked={this.state.userTypeSearch === ""}
+        checked={this.state.userTypeSearch === "All"}
         onChange={this.handleChangeRadio} />
         <label for="radio-btn-1" class="btn"> All </label>
 
@@ -165,12 +165,13 @@ class MediaCard extends React.Component {
 
                     <Card.Content>
                       <Card.Header>{user.first_name}</Card.Header>
-                      <Label color="#57bf96" ribbon>
+                      <Label color="red" ribbon>
                         {user.user_type}
                       </Label>
                       <Card.Meta>
-                        <span className="date">    </span>
+                        <span className="date"></span>
                       </Card.Meta>
+                      <br />
                       {user.skills.map((skill, index) => {
                         return (
                           <div>

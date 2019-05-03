@@ -60,3 +60,7 @@ input[type="reset"] {
 .github {
   display: flex;
 }
+
+.working {
+  padding: 20px;
+}
